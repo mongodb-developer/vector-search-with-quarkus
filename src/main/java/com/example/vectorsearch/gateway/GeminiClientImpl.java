@@ -28,11 +28,12 @@ public class GeminiClientImpl implements GeminiAIGateway {
         LOGGER.info("Requesting embeddings for input: {}", input);
 
         GeminiRequest request = new GeminiRequest(
+                geminiAIConfig.getModel(),
                 new GeminiRequest.Content(List.of(new GeminiRequest.Part(input)))
         );
+        LOGGER.info("Sending request: {}", request);
 
         var embedding = geminiAIGateway.embedding(request);
-
         return embedding.data().get(0).embedding();
     }
 }
