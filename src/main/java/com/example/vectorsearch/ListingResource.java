@@ -4,6 +4,7 @@ package com.example.vectorsearch;
 import com.example.vectorsearch.service.ListingService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.Response;
 
@@ -14,7 +15,7 @@ public class ListingResource {
     @Inject
     ListingService listingService;
 
-    @GET
+    @POST
     @Path("/generate-embeddings")
     public Response generateEmbeddings() {
         listingService.generateAndStoreEmbeddings();
@@ -23,8 +24,8 @@ public class ListingResource {
 
     @GET
     @Path("/perform-vector-search")
-    public Response performVectorSearch() {
-
+    public Response performVectorSearch(String query) {
+        listingService.performVectorSearch(query);
         return Response.ok("Vector search result").build();
     }
 }

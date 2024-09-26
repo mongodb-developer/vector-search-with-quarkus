@@ -1,13 +1,23 @@
 package com.example.vectorsearch.response;
 
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
-public record GeminiResponse(
-        List<DataItem> data){
+public class GeminiResponse {
 
-    public record DataItem(
-            List<Double> embedding
-    ){}
+    @JsonProperty("data")
+    private List<DataItem> data;
+
+    public List<DataItem> getData() {
+        return data;
+    }
+
+    public static class DataItem {
+        @JsonProperty("embedding")
+        private List<Double> embedding;
+
+        public List<Double> getEmbedding() {
+            return embedding;
+        }
+    }
 }
-

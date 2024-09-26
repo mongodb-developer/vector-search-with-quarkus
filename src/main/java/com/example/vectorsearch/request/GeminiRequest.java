@@ -5,8 +5,8 @@ import java.util.List;
 
 @RegisterForReflection
 public record GeminiRequest(
-        String model,
-        Content content) {
+
+        String model, Content content) {
 
     public static record Content(
             List<Part> parts) {}
