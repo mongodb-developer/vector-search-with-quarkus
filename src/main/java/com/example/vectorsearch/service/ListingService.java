@@ -1,6 +1,6 @@
 package com.example.vectorsearch.service;
 
-import com.example.vectorsearch.gateway.GeminiClientImpl;
+import com.example.vectorsearch.gateway.GeminiAIGatewayImpl;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.search.FieldSearchPath;
@@ -23,7 +23,7 @@ public class ListingService {
     MongoClient mongoClient;
 
     @Inject
-    GeminiClientImpl geminiClient;
+    GeminiAIGatewayImpl geminiClient;
 
     public void generateAndStoreEmbeddings() {
         MongoCollection<Document> listingsCollection = mongoClient.getDatabase("sample_airbnb").getCollection("listingsAndReviews");

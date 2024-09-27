@@ -2,7 +2,6 @@ package com.example.vectorsearch.gateway;
 
 import com.example.vectorsearch.config.GeminiConfig;
 import com.example.vectorsearch.request.GeminiRequest;
-import com.example.vectorsearch.response.GeminiResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.quarkus.rest.client.reactive.QuarkusRestClientBuilder;
@@ -16,12 +15,12 @@ import java.net.URI;
 import java.util.List;
 
 @ApplicationScoped
-public class GeminiClientImpl implements GeminiAIGateway {
+public class GeminiAIGatewayImpl implements GeminiAIGateway {
 
     @Inject
     GeminiConfig geminiAIConfig;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(GeminiClientImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(GeminiAIGatewayImpl.class);
 
     @Override
     public List<Double> getEmbedding(String input) {
